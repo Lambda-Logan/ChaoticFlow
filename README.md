@@ -2,7 +2,7 @@
 
 This is an encoding of 'flow' from fluid dynamics as a monoidal functor from a monoid `t` to `Endo a`.
 
-According to the definition of wikipedia, a flow is a mapping from addition on the reals to a function on `a`. We generalize addition on the reals to a monoid and encode it as `newtype Flow' s t a = Flow{ unFlow :: Kleisli (State s) t a }`
+According to the definition on wikipedia, a flow is a mapping from addition on the reals to a function on `a`. We generalize addition on the reals to a monoid and encode it as `newtype Flow' s t a = Flow{ unFlow :: Kleisli (State s) t a }`
 
 A `Flow` is implements a wide range of categorical operations:
 
