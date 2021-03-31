@@ -11,7 +11,7 @@ https://en.wikipedia.org/wiki/Flow_(mathematics)
 We generalize addition on the reals to a monoid and encode it as `newtype Flow s t a = Flow{ unFlow :: Kleisli (State s) t a }`. That might seem like a weird type for it, but it can be arrived at by the following:
 ```haskell
 -- for t = Reals
-(s, t) -> s -- see wiki
+(s, t) -> s -- see wikipedia above
 t -> s -> s
 t -> s -> (a, s) -- needs output parameter to fmap
 t -> State s a
@@ -32,9 +32,14 @@ deriving instance ArrowApply (Flow s)
 deriving instance ArrowChoice (Flow s)
 deriving instance Profunctor (Flow s)
 
-instance (Semigroup t) => Semigroup (Flow a t a)...
+instance (Semigroup t) => Semigroup (Flow a t a) where...
 
-instance (Monoid t) => Monoid (Flow a t a)...
+instance (Monoid t) => Monoid (Flow a t a) where...
+
+instance (Group t)=> Group (Flow a t a) where...
+
+instance MonadState s (Flow s t a) where...
+
 ```
 
 
